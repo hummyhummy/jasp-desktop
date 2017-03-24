@@ -1,99 +1,289 @@
+// {
+// 	"name": "MLRegressionBoosting",
+// 	"autorun": true,
+// 	"version": "1.00",
+// 	"options": [
+// 		{
+// 			"name": "target",
+// 			"type": "Variable"
+// 		},
+// 		{
+// 			"name": "predictors",
+// 			"type": "Variables"
+// 		},
+// 		{
+// 			"name": "indicator",
+// 			"type": "Variable"
+// 		},
+// 		{
+// 			"name": "modelTerms",
+// 			"template": [
+// 				{
+// 					"name": "components",
+// 					"type": "Term"
+// 				},
+// 				{
+// 					"name": "isNuisance",
+// 					"type": "Boolean"
+// 				}
+// 			],
+// 			"type": "Table"
+// 		},
+// 		{
+// 			"name": "plotVariableImportance",
+// 			"type": "Boolean"
+// 		},
+// 		{
+// 			"name": "plotVariableImportanceShowValues",
+// 			"type": "Boolean"
+// 		},
+// 		{
+// 			"name": "plotPredictivePerformance",
+// 			"type": "Boolean"
+// 		},
+// 		{
+// 			"name": "tableVariableImportance",
+// 			"type": "Boolean"
+// 		},
+// 		{
+// 			"name": "tableConfusion",
+// 			"type": "Boolean"
+// 		},
+// 		{
+// 			"name": "calculateProximityMatrix",
+// 			"type": "Boolean"
+// 		},
+// 		{
+// 			"name": "noOfTrees",
+// 			"type": "List",
+// 			"options": [ "auto", "manual" ],
+// 			"default": "auto"
+// 		},
+// 		{
+// 			"name": "noOfPredictors",
+// 			"type": "List",
+// 			"options": [ "auto", "manual" ],
+// 			"default": "auto"
+// 		},
+// 		{
+// 			"name": "minimumTerminalNodeSize",
+// 			"type": "List",
+// 			"options": [ "auto", "manual" ],
+// 			"default": "auto"
+// 		},
+// 		{
+// 			"name": "dataBootstrapModel",
+// 			"type": "List",
+// 			"options": [ "auto", "manual" ],
+// 			"default": "auto"
+// 		},
+// 		{
+// 			"name": "dataTrainingModel",
+// 			"type": "List",
+// 			"options": [ "auto", "manual" ],
+// 			"default": "auto"
+// 		},
+// 		{
+// 			"name": "maximumTerminalNodeSize",
+// 			"type": "List",
+// 			"options": [ "auto", "manual" ],
+// 			"default": "auto"
+// 		},
+// 		{
+// 			"name": "seedBox",
+// 			"type": "List",
+// 			"options": [ "auto", "manual" ],
+// 			"default": "auto"
+// 		}
+// 	]
+// }
 {
-	"name": "MLRegressionBoosting",
-	"autorun": true,
-	"version": "1.00",
-	"options": [
+	"name":"MLRegressionBoosting",
+	"autorun":true,
+	"version":"1.00",
+	"options":[
 		{
-			"name": "target",
-			"type": "Variable"
+			"name":"predictors",
+			"type":"Variables"
 		},
 		{
-			"name": "predictors",
-			"type": "Variables"
+			"name":"target",
+			"type":"Variable"
 		},
 		{
-			"name": "indicator",
-			"type": "Variable"
+			"name":"indicator",
+			"type":"Variable"
 		},
 		{
-			"name": "modelTerms",
-			"template": [
-				{
-					"name": "components",
-					"type": "Term"
-				},
-				{
-					"name": "isNuisance",
-					"type": "Boolean"
-				}
-			],
-			"type": "Table"
+			"default":100,
+			"min": 0.0,
+			"name":"numberOfIterations",
+			"type":"Number"
 		},
 		{
-			"name": "plotVariableImportance",
-			"type": "Boolean"
+			"default":0.1,
+			"min":0.0,
+			"max":1.0,
+			"name":"Shrinkage",
+			"type":"Number"
 		},
 		{
-			"name": "plotVariableImportanceShowValues",
-			"type": "Boolean"
+			"name": "distribution",
+			"options": [ "default","guassian","laplace"],
+			"default": "guassian",
+			"type": "List"
 		},
 		{
-			"name": "plotPredictivePerformance",
-			"type": "Boolean"
+			"default":false,
+			"name":"tableRF",
+			"type":"Boolean"
 		},
 		{
-			"name": "tableVariableImportance",
-			"type": "Boolean"
+			"default":false,
+			"name":"tableChisq",
+			"type":"Boolean"
 		},
 		{
-			"name": "tableConfusion",
-			"type": "Boolean"
+			"default":false,
+			"name":"modelPerformance",
+			"type":"Boolean"
 		},
 		{
-			"name": "calculateProximityMatrix",
-			"type": "Boolean"
+			"default":false,
+			"name":"modelPerforamceShowError",
+			"type":"Boolean"
 		},
 		{
-			"name": "noOfTrees",
+			"default":false,
+			"name":"modelPerforamceShowAUC",
+			"type":"Boolean"
+		},
+		{
+			"default":false,
+			"name":"plotRF",
+			"type":"Boolean"
+		},
+		{
+			"default":false,
+			"name":"plotMarginalPlot",
+			"type":"Boolean"
+		},
+		{
+			"default":false,
+			"name":"plotMarginalPlotOneWay",
+			"type":"Boolean"
+		},
+
+		{
+			"default":false,
+			"name":"plotMarginalPlotTwoWay",
+			"type":"Boolean"
+		},
+
+		
+		{
+			"default":false,
+			"name":"plotHStatistics",
+			"type":"Boolean"
+		},
+
+		{
+			"name": "methodCV",
+			"type": "Boolean",
+			"default": false
+		},
+
+		{
+			"name":"value_numberOfFold",
+			"type":"Number",
+			"default":3
+		},
+
+		{
+			"name": "OOBBox",
 			"type": "List",
-			"options": [ "auto", "manual" ],
-			"default": "auto"
+			"options": [ "auto_subsample","manual_subsample" ],
+			"default": "auto_subsample"
 		},
+
 		{
-			"name": "noOfPredictors",
-			"type": "List",
-			"options": [ "auto", "manual" ],
-			"default": "auto"
+			"name":"value_subsample",
+			"type":"Number",
+			"default":0.5
+
 		},
+
 		{
-			"name": "minimumTerminalNodeSize",
+			"name": "testBox",
 			"type": "List",
-			"options": [ "auto", "manual" ],
-			"default": "auto"
+			"options": [ "auto_percentageTrain","manual_percentageTrain" ,"manual_numberTrain"],
+			"default": "auto_percentageTrain"
 		},
+
 		{
-			"name": "dataBootstrapModel",
-			"type": "List",
-			"options": [ "auto", "manual" ],
-			"default": "auto"
+			"name":"value_percentageTraining",
+			"type":"Number",
+			"min":0,
+			"max":1,
+			"default":0.5
 		},
+
 		{
-			"name": "dataTrainingModel",
-			"type": "List",
-			"options": [ "auto", "manual" ],
-			"default": "auto"
+			"name":"value_numberTraining",
+			"type":"Number",
+			"min":1,
+			"default":0
 		},
+
+
 		{
-			"name": "maximumTerminalNodeSize",
+			"name": "TreeStructureBox",
 			"type": "List",
-			"options": [ "auto", "manual" ],
-			"default": "auto"
+			"options": [ "auto_TS","manual_TS", "optimized_TS"],
+			"default": "auto_TS"
 		},
+
+		{
+			"name":"value_depthOfTree",
+			"type":"Number",
+			"min":1,
+			"default":1
+		},
+
+		{
+			"name":"value_MinTermNodeSide",
+			"type":"Number",
+			"min":1,
+			"default":5
+		},
+
 		{
 			"name": "seedBox",
 			"type": "List",
-			"options": [ "auto", "manual" ],
-			"default": "auto"
+			"options": [ "auto_seed", "manual_seed" ],
+			"default": "auto_seed"
+		},
+
+		{
+			"name": "coreBox",
+			"type": "List",
+			"options": [ "auto_numberOfCore", "manual_numberOfCore" ],
+			"default": "auto_numberOfCore"
+		},
+
+		{
+			"name":"value_seed",
+			"type":"Number",
+			"default":1
+		},
+
+		{
+			"name":"value_numberOfCore",
+			"type":"Number",
+			"default":1
 		}
 	]
 }
+
+
+

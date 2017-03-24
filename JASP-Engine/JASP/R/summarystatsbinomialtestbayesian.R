@@ -36,32 +36,32 @@ SummaryStatsBinomialTestBayesian <- function(dataset = NULL, options, perform = 
 	bf.title <- bftype$bftitle
 
 	hypothesis.variables <- .hypothesisType.summarystats.binomial(
-																							hypothesis = options$hypothesis,
-																							test.value = options$testValue
-																						)
+								hypothesis = options$hypothesis,
+								test.value = options$testValue
+							)
 	hyp <- hypothesis.variables$hyp
 
 	# Output table row and Bayes factor objec
 	outputTableElements <- .getOutputRow.summarystats.binomial(
-														run = run,
-														options = options,
-														state = state,
-														diff = diff,
-														hyp = hyp
-													)
+								run = run,
+								options = options,
+								state = state,
+								diff = diff,
+								hyp = hyp
+							)
 	rowsBinomialTest <- outputTableElements$row
 	bayesFactorObject <- outputTableElements$bayesFactorObject
 
 	# Prior and Posterior plot
 	if (options$plotPriorAndPosterior) {
 		priorAndPosteriorPlot <- .getPriorAndPosteriorPlot.summarystats.binomial(
-																run = run,
-																options = options,
-																state = state,
-																diff = diff,
-																bayesFactorObject = bayesFactorObject,
-																hyp = hyp
-															)
+								run = run,
+								options = options,
+								state = state,
+								diff = diff,
+								bayesFactorObject = bayesFactorObject,
+								hyp = hyp
+							)
 	}
 
 	# Add footnotes to the analysis result

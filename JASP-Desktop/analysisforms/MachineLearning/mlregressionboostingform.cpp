@@ -94,5 +94,7 @@ void MLRegressionBoostingForm::factorsChanged()
 
 void MLRegressionBoostingForm::on_plotPredictivePerformance_clicked(bool checked)
 {
-        ui->oneWay->setEnabled(true);
+		ui->plotMarginalPlotOneWay->setEnabled(true);
 }
+
+
