@@ -228,7 +228,7 @@ MLRegressionBoosting <- function (dataset = NULL, options, perform = "run", call
 
 		options[["value_percentageTrain"]] <- 0.5
 
-		model = gbm::gbm(
+                model = gbm::gbm(
 		formula = formula,
 		data = fitData,
 		distribution = options[["distribution"]],
