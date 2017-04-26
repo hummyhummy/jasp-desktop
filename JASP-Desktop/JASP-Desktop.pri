@@ -258,10 +258,6 @@ HEADERS  += \
         $$PWD/widgets/itemmodelselectitem.h \
         $$PWD/widgets/itemmodelselectvariable.h \
         $$PWD/widgets/tabbar.h \
-<<<<<<< HEAD
-=======
-#        $$PWD/optionsform.h \
->>>>>>> fix not found ui_optimizationForm.h problem by xiaozhu $$PWD/optionsform.cpp in jasp-desktop/Jasp-Desktop.pri
         $$PWD/widgets/textmodellavaan.h \
         $$PWD/term.h \
         $$PWD/terms.h \
