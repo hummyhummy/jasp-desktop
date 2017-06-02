@@ -116,21 +116,22 @@
 		},
 		{
 			"default":100,
-			"min": 0.0,
+			"min": 1,
 			"name":"numberOfIterations",
-			"type":"Number"
+			"type":"Integer"
 		},
 		{
-			"default":0.1,
-			"min":0.0,
-			"max":1.0,
+			"value":0.1,
+			"format": "",
 			"name":"Shrinkage",
-			"type":"Number"
+			"type":"Number",
+			"min":0,
+			"max":1
 		},
 		{
 			"name": "distribution",
-			"options": [ "default","guassian","laplace"],
-			"default": "guassian",
+			"options": [ "default","gaussian","laplace"],
+			"default": "gaussian",
 			"type": "List"
 		},
 		{
@@ -195,7 +196,8 @@
 
 		{
 			"name":"value_numberOfFold",
-			"type":"Number",
+			"type":"Integer",
+			"min":0,
 			"default":3
 		},
 
@@ -207,32 +209,28 @@
 		},
 
 		{
+			"value":0.5,
+			"format": "",
 			"name":"value_subsample",
 			"type":"Number",
-			"default":0.5
-
+			"min":0.0,
+			"max":1.0
 		},
 
 		{
 			"name": "testBox",
 			"type": "List",
-			"options": [ "auto_percentageTrain","manual_percentageTrain" ,"manual_numberTrain"],
+			"options": [ "auto_percentageTrain", "manual_percentageTrain"],
 			"default": "auto_percentageTrain"
 		},
 
 		{
+			"format": "",
 			"name":"value_percentageTraining",
 			"type":"Number",
 			"min":0,
 			"max":1,
-			"default":0.5
-		},
-
-		{
-			"name":"value_numberTraining",
-			"type":"Number",
-			"min":1,
-			"default":0
+			"value":0.5
 		},
 
 
@@ -245,14 +243,56 @@
 
 		{
 			"name":"value_depthOfTree",
-			"type":"Number",
+			"type":"Integer",
 			"min":1,
 			"default":1
 		},
 
 		{
+			"name":"value_depthOfTreeMin",
+			"type":"Integer",
+			"min":1,
+			"default":1
+		},
+
+		{
+			"name":"value_depthOfTreeMax",
+			"type":"Integer",
+			"min":1,
+			"default":5
+		},
+
+		{
+			"name":"value_depthOfTreeStep",
+			"type":"Integer",
+			"min":1,
+			"default":1
+		},
+
+		{
+			"name":"value_MinTermNodeSideMin",
+			"type":"Integer",
+			"min":1,
+			"default":5
+		},
+
+		{
+			"name":"value_MinTermNodeSideMax",
+			"type":"Integer",
+			"min":1,
+			"default":20
+		},
+
+		{
+			"name":"value_MinTermNodeSideStep",
+			"type":"Integer",
+			"min":1,
+			"default":5
+		},
+
+		{
 			"name":"value_MinTermNodeSide",
-			"type":"Number",
+			"type":"Integer",
 			"min":1,
 			"default":5
 		},
@@ -273,13 +313,15 @@
 
 		{
 			"name":"value_seed",
-			"type":"Number",
+			"type":"Integer",
+			"min":0,
 			"default":1
 		},
 
 		{
 			"name":"value_numberOfCore",
-			"type":"Number",
+			"type":"Integer",
+			"min":1,
 			"default":1
 		}
 	]

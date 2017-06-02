@@ -2070,7 +2070,7 @@ void MainWindow::startDataEditorEventCompleted(FileEvent* event)
 		startDataEditor(event->path());
 	}
 }
-<<<<<<< HEAD
+
 
 void MainWindow::startDataEditor(QString path)
 {
@@ -2107,5 +2107,4 @@ void MainWindow::startDataEditor(QString path)
 		}
 	}
 }
-=======
->>>>>>> Added Machine Learning to list of modules
+

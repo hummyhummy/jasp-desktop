@@ -59,6 +59,11 @@ CorrelationBayesian <- function(dataset=NULL, options, perform="run",
 			dataset <- .readDataSetHeader(columns.as.numeric=options$variables)
 		}
 	}
+
+
+	print(typeof(data))
+
+
 	results <- list()
 	meta <- list()
 	meta[[1]] <- list(name="title", type="title")

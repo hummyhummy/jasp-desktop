@@ -22,14 +22,20 @@ CorrelationBayesianPairs <- function(dataset=NULL, options, perform="run", callb
 	all.variables <- unique(unlist(options$pairs))
 	all.variables <- all.variables[all.variables != ""]
 	
+	# print(perform)
+	# print(all.variables)
+	# print(typeof(all.variables))
+
 	if (is.null(dataset)) {
 		if (perform == "run") {
+			print("load data")
 		    if (options$missingValues == "excludeListwise") {
 		        dataset <- .readDataSetToEnd(columns.as.numeric=all.variables, exclude.na.listwise=all.variables)
 		    } else {
 		        dataset <- .readDataSetToEnd(columns.as.numeric=all.variables)
 		    }
 		} else {
+			print("just set header")
 		    dataset <- .readDataSetHeader(columns.as.numeric=all.variables)
 		}
 	} else {
@@ -39,8 +45,8 @@ CorrelationBayesianPairs <- function(dataset=NULL, options, perform="run", callb
 		    dataset <- .vdf(dataset, columns.as.numeric=all.variables)
 		}
 	}
-	
-	
+
+
 	results <- list()
 	meta <- list()
 	
