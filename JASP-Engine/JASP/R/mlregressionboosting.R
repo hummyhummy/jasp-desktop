@@ -225,12 +225,12 @@ MLBoostingMain <- function (analysisType, dataset = NULL, options, perform = "ru
 			)
 
 			# hasError <- FALSE
-			# anyErrors <- .hasErrors(dataset = dataset, perform = perform, type = c("infinity", "variance"), custom = customChecks, exitAnalysisIfErrors=TRUE)
-			anyErrors <- .hasErrors(dataset = datasetNoNa, perform = perform, type = c("infinity", "variance"), custom = customChecks, exitAnalysisIfErrors=TRUE)
+			# anyErrors <- .hasErrors(dataset = datasetNoNa, perform = perform, type = c("infinity", "variance"), custom = customChecks, exitAnalysisIfErrors=TRUE)
+			anyErrors <- .hasErrors(dataset = datasetNoNa, perform = perform, type = "variance", custom = customChecks, exitAnalysisIfErrors=TRUE)
 			hasError <- base::identical(anyErrors, TRUE)
 
 			if(!hasError){
-				print("now run analysis...")
+
 				res <- try(silent = FALSE, expr ={
 					.BoostingAnalysis(fitData, appData, options, predictors, target, indicator, perform = perform)
 					})
